@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.1 on win32)" generated="20230302 19:11:36.963" rpa="false" schemaversion="3">
+<suite id="s1" name="SearchFunctionality" source="D:\Working zone\Trac nghiem vn\Python\TracNghiemVN\Tests\TracNghiemVN\SearchFunctionality.robot">
+<test id="s1-t1" name="Verify if user entered blank space into search bar" line="9">
+<kw name="Blank values result" library="SearchResultPage">
+<arg>${EMPTY}</arg>
+<kw name="Search bar action" library="LandingPage">
+<arg>${search_text}</arg>
+<kw name="Open TracNghiemVN main page" library="CommonFunctionality">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${trac_nghiem_vn_ulr}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230302 19:11:37.394" level="INFO">Opening browser 'chrome' to base url 'https://tracnghiem.vn/'.</msg>
+<status status="PASS" starttime="20230302 19:11:37.394" endtime="20230302 19:11:47.511"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230302 19:11:47.512" endtime="20230302 19:11:47.652"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230302 19:11:49.654" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230302 19:11:47.652" endtime="20230302 19:11:49.654"/>
+</kw>
+<status status="PASS" starttime="20230302 19:11:37.394" endtime="20230302 19:11:49.654"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${search_text_box}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230302 19:11:49.654" level="INFO">Typing text '' into text field '//input[@id='input_keyword']'.</msg>
+<status status="PASS" starttime="20230302 19:11:49.654" endtime="20230302 19:11:49.851"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${search_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230302 19:11:49.855" level="INFO">Clicking button '//button[@class='btn btn-primary']'.</msg>
+<status status="PASS" starttime="20230302 19:11:49.853" endtime="20230302 19:11:51.642"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${search_result_page_title}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230302 19:11:51.665" level="INFO">Current page contains element '//span[contains(text(),'kết quả')]'.</msg>
+<status status="PASS" starttime="20230302 19:11:51.642" endtime="20230302 19:11:51.666"/>
+</kw>
+<status status="PASS" starttime="20230302 19:11:37.394" endtime="20230302 19:11:51.666"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${search_blank_result}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230302 19:11:51.666" endtime="20230302 19:11:51.698"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${search_blank_result}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20230302 19:11:52.395" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230302 19:11:52.411" level="FAIL">Page should have contained text '//strong[normalize-space()='140']' but did not.</msg>
+<status status="FAIL" starttime="20230302 19:11:51.698" endtime="20230302 19:11:52.411"/>
+</kw>
+<kw name="Finish Test" library="CommonFunctionality">
+<status status="NOT RUN" starttime="20230302 19:11:52.411" endtime="20230302 19:11:52.411"/>
+</kw>
+<status status="FAIL" starttime="20230302 19:11:37.394" endtime="20230302 19:11:52.411"/>
+</kw>
+<status status="FAIL" starttime="20230302 19:11:37.378" endtime="20230302 19:11:52.411">Page should have contained text '//strong[normalize-space()='140']' but did not.</status>
+</test>
+<test id="s1-t2" name="Verify if user entered wrong values into search bar" line="13">
+<kw name="Wrong values result" library="SearchResultPage">
+<arg>game</arg>
+<kw name="Search bar action" library="LandingPage">
+<arg>${search_text}</arg>
+<kw name="Open TracNghiemVN main page" library="CommonFunctionality">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${trac_nghiem_vn_ulr}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230302 19:11:52.411" level="INFO">Opening browser 'chrome' to base url 'https://tracnghiem.vn/'.</msg>
+<status status="PASS" starttime="20230302 19:11:52.411" endtime="20230302 19:12:02.825"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230302 19:12:02.825" endtime="20230302 19:12:03.150"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230302 19:12:05.151" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230302 19:12:03.150" endtime="20230302 19:12:05.151"/>
+</kw>
+<status status="PASS" starttime="20230302 19:11:52.411" endtime="20230302 19:12:05.151"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${search_text_box}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230302 19:12:05.151" level="INFO">Typing text 'game' into text field '//input[@id='input_keyword']'.</msg>
+<status status="PASS" starttime="20230302 19:12:05.151" endtime="20230302 19:12:05.275"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${search_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230302 19:12:05.276" level="INFO">Clicking button '//button[@class='btn btn-primary']'.</msg>
+<status status="PASS" starttime="20230302 19:12:05.275" endtime="20230302 19:12:06.613"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${search_result_page_title}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230302 19:12:06.632" level="INFO">Current page contains element '//span[contains(text(),'kết quả')]'.</msg>
+<status status="PASS" starttime="20230302 19:12:06.613" endtime="20230302 19:12:06.632"/>
+</kw>
+<status status="PASS" starttime="20230302 19:11:52.411" endtime="20230302 19:12:06.632"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${no_result_for_search}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230302 19:12:06.654" level="INFO">Current page contains element '//h3[contains(text(),'Không có dữ liệu')]'.</msg>
+<status status="PASS" starttime="20230302 19:12:06.632" endtime="20230302 19:12:06.654"/>
+</kw>
+<kw name="Finish Test" library="CommonFunctionality">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230302 19:12:06.655" endtime="20230302 19:12:19.722"/>
+</kw>
+<status status="PASS" starttime="20230302 19:12:06.655" endtime="20230302 19:12:19.722"/>
+</kw>
+<status status="PASS" starttime="20230302 19:11:52.411" endtime="20230302 19:12:19.722"/>
+</kw>
+<status status="PASS" starttime="20230302 19:11:52.411" endtime="20230302 19:12:19.722"/>
+</test>
+<test id="s1-t3" name="Verify if user entered right values into search bar" line="16">
+<kw name="Right values result" library="SearchResultPage">
+<arg>Lái xe</arg>
+<kw name="Search bar action" library="LandingPage">
+<arg>${search_text}</arg>
+<kw name="Open TracNghiemVN main page" library="CommonFunctionality">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${trac_nghiem_vn_ulr}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230302 19:12:19.722" level="INFO">Opening browser 'chrome' to base url 'https://tracnghiem.vn/'.</msg>
+<status status="PASS" starttime="20230302 19:12:19.722" endtime="20230302 19:12:29.725"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230302 19:12:29.725" endtime="20230302 19:12:29.858"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230302 19:12:31.859" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230302 19:12:29.859" endtime="20230302 19:12:31.859"/>
+</kw>
+<status status="PASS" starttime="20230302 19:12:19.722" endtime="20230302 19:12:31.859"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${search_text_box}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230302 19:12:31.859" level="INFO">Typing text 'Lái xe' into text field '//input[@id='input_keyword']'.</msg>
+<status status="PASS" starttime="20230302 19:12:31.859" endtime="20230302 19:12:32.061"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${search_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230302 19:12:32.064" level="INFO">Clicking button '//button[@class='btn btn-primary']'.</msg>
+<status status="PASS" starttime="20230302 19:12:32.061" endtime="20230302 19:12:33.868"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${search_result_page_title}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230302 19:12:33.893" level="INFO">Current page contains element '//span[contains(text(),'kết quả')]'.</msg>
+<status status="PASS" starttime="20230302 19:12:33.868" endtime="20230302 19:12:33.893"/>
+</kw>
+<status status="PASS" starttime="20230302 19:12:19.722" endtime="20230302 19:12:33.893"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${search_text}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20230302 19:12:33.921" level="INFO">Current page contains text 'Lái xe'.</msg>
+<status status="PASS" starttime="20230302 19:12:33.893" endtime="20230302 19:12:33.921"/>
+</kw>
+<kw name="Finish Test" library="CommonFunctionality">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230302 19:12:33.922" endtime="20230302 19:12:40.225"/>
+</kw>
+<status status="PASS" starttime="20230302 19:12:33.922" endtime="20230302 19:12:40.225"/>
+</kw>
+<status status="PASS" starttime="20230302 19:12:19.722" endtime="20230302 19:12:40.225"/>
+</kw>
+<status status="PASS" starttime="20230302 19:12:19.722" endtime="20230302 19:12:40.225"/>
+</test>
+<kw name="Finish Test" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230302 19:12:40.225" endtime="20230302 19:12:40.225"/>
+</kw>
+<status status="PASS" starttime="20230302 19:12:40.225" endtime="20230302 19:12:40.225"/>
+</kw>
+<status status="FAIL" starttime="20230302 19:11:36.963" endtime="20230302 19:12:40.225"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="1" skip="0" id="s1" name="SearchFunctionality">SearchFunctionality</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
