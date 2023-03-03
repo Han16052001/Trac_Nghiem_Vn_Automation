@@ -6,4 +6,4 @@ Suite Teardown    CommonFunctionality.Finish Test
 
 *** Test Cases ***
 Verify the working of logout function
-    HeaderPage.Logout action
+    HeaderPage.Logout action    test1@gmail.com  Test123
