@@ -1,645 +1,274 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.11.1 on win32)" generated="20230303 20:20:39.544" rpa="false" schemaversion="3">
-<suite id="s1" name="LoginFunctionality" source="D:\Working zone\Trac nghiem vn\Python\TracNghiemVN\Tests\TracNghiemVN\LoginFunctionality.robot">
-<test id="s1-t1" name="Verify login successfully" line="8">
-<kw name="Successful login action" library="LoginPage">
-<arg>test1@gmail.com</arg>
-<arg>Test123</arg>
-<tag>Positive case</tag>
-<doc>This test case is simulates the login user story in successfull case</doc>
-<kw name="Open TracNghiemVN main page" library="CommonFunctionality">
+<robot generator="Robot 6.0.2 (Python 3.11.1 on win32)" generated="20230305 17:29:40.617" rpa="false" schemaversion="3">
+<suite id="s1" name="SearchFunctionality" source="D:\Working zone\Trac nghiem vn\Python\TracNghiemVN\Tests\TracNghiemVN\SearchFunctionality.robot">
+<test id="s1-t1" name="Verify if user entered blank space into search bar" line="7">
+<kw name="Open TracNghiemVN main page" library="CommonFunctionality" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${trac_nghiem_vn_ulr}</arg>
-<arg>${browser}</arg>
+<arg>${chrome_browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230303 20:20:40.286" level="INFO">Opening browser 'chrome' to base url 'https://tracnghiem.vn/'.</msg>
-<status status="PASS" starttime="20230303 20:20:40.286" endtime="20230303 20:20:59.817"/>
+<msg timestamp="20230305 17:29:41.220" level="INFO">Opening browser 'chrome' to base url 'https://tracnghiem.vn/'.</msg>
+<status status="PASS" starttime="20230305 17:29:41.219" endtime="20230305 17:29:52.547"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230303 20:20:59.817" endtime="20230303 20:21:00.057"/>
+<status status="PASS" starttime="20230305 17:29:52.547" endtime="20230305 17:29:52.825"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230303 20:21:02.057" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230303 20:21:00.057" endtime="20230303 20:21:02.057"/>
+<msg timestamp="20230305 17:29:54.827" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230305 17:29:52.825" endtime="20230305 17:29:54.827"/>
 </kw>
-<status status="PASS" starttime="20230303 20:20:40.286" endtime="20230303 20:21:02.057"/>
+<status status="PASS" starttime="20230305 17:29:41.218" endtime="20230305 17:29:54.828"/>
 </kw>
-<kw name="Redirect to login page" library="HeaderPage">
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${login_button_header_page}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230303 20:21:02.057" level="INFO">Clicking element '//button[@class='btn btn-outline-primary']'.</msg>
-<status status="PASS" starttime="20230303 20:21:02.057" endtime="20230303 20:21:05.800"/>
+<kw name="Blank values result" library="SearchResultPage">
+<arg>${EMPTY}</arg>
+<kw name="Search bar action" library="LandingPage">
+<arg>${search_text}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${search_text_box_lp}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230305 17:29:54.921" level="INFO">Typing text '' into text field '//input[@id='input_keyword']'.</msg>
+<status status="PASS" starttime="20230305 17:29:54.914" endtime="20230305 17:29:55.231"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${search_button_lp}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230305 17:29:55.234" level="INFO">Clicking button '//button[@class='btn btn-primary']'.</msg>
+<status status="PASS" starttime="20230305 17:29:55.231" endtime="20230305 17:29:57.991"/>
 </kw>
 <kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${login_button}</arg>
+<arg>${search_result_page_title_srp}</arg>
 <doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20230303 20:21:05.841" level="INFO">Current page contains element '//button[contains(text(),'Đăng nhập')]'.</msg>
-<status status="PASS" starttime="20230303 20:21:05.808" endtime="20230303 20:21:05.841"/>
-</kw>
-<status status="PASS" starttime="20230303 20:21:02.057" endtime="20230303 20:21:05.841"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${username_text_box}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230303 20:21:05.841" level="INFO">Typing text 'test1@gmail.com' into text field '//input[@id='username']'.</msg>
-<status status="PASS" starttime="20230303 20:21:05.841" endtime="20230303 20:21:06.146"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${password_text_box}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230303 20:21:06.157" level="INFO">Typing text 'Test123' into text field '//input[@id='password']'.</msg>
-<status status="PASS" starttime="20230303 20:21:06.146" endtime="20230303 20:21:06.382"/>
-</kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>${login_button}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20230303 20:21:06.382" level="INFO">Clicking button '//button[contains(text(),'Đăng nhập')]'.</msg>
-<status status="PASS" starttime="20230303 20:21:06.382" endtime="20230303 20:21:09.609"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${user_option_dropdown_list}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20230303 20:21:09.633" level="INFO">Current page contains element '//div[@class='user-info d-flex align-items-center']'.</msg>
-<status status="PASS" starttime="20230303 20:21:09.609" endtime="20230303 20:21:09.633"/>
-</kw>
-<kw name="Finish Test" library="CommonFunctionality">
-<kw name="Close All Browsers" library="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20230303 20:21:09.633" endtime="20230303 20:21:16.044"/>
-</kw>
-<status status="PASS" starttime="20230303 20:21:09.633" endtime="20230303 20:21:16.044"/>
-</kw>
-<status status="PASS" starttime="20230303 20:20:40.286" endtime="20230303 20:21:16.044"/>
-</kw>
-<status status="PASS" starttime="20230303 20:20:40.286" endtime="20230303 20:21:16.044"/>
-</test>
-<test id="s1-t2" name="Verify login Fails - Blank Username and Password" line="12">
-<kw name="Invalid login action" library="LoginPage">
-<arg>${EMPTY}</arg>
-<arg>${EMPTY}</arg>
-<arg>Tên đăng nhập hoặc mật khẩu không đúng</arg>
-<tag>Negative case</tag>
-<doc>This test case will perform invalid login scenarios</doc>
-<kw name="Open TracNghiemVN login page" library="CommonFunctionality">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>${trac_nghiem_vn_login_page_ulr}</arg>
-<arg>${browser}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230303 20:21:16.075" level="INFO">Opening browser 'chrome' to base url 'https://auth.tracnghiem.vn/auth/realms/tracnghiemvn/protocol/openid-connect/auth?client_id=web-auth-app&amp;scope=openid%20profile%20email&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Ftracnghiem.vn%2Fsignin-keycloak&amp;state=CfDJ8CVEsmsgg3BJtzBf5x9wLvezaYX6oDoF5BLcA2UEduptiKwFhHLXOt_CklWCLXXxFlUYoC_Nc6jp9W-oijebSylsX3iVAPOJwa4pnjLhX6s2IspbpnD5zypjWx0aO1rore3g-qQycEWRp4k-j4DezzeQbTHUf6Q4_Z18be-uxWhFLJU0p7E6wr0LBNg6pMvh9zNrbJxTO32XGDThfhEKHZyG4JGpl1qf7LxzGqf2Ui6UuxcbyTwriKvOzdOwCISakQyDEYcA3QdlcH2Uu0WF5Qv4APk9wYLxIk3f_nSn5wmGxwApy1m1KSl3OwB7yin2HA'.</msg>
-<status status="PASS" starttime="20230303 20:21:16.059" endtime="20230303 20:21:24.997"/>
-</kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230303 20:21:24.997" endtime="20230303 20:21:25.193"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230303 20:21:27.193" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230303 20:21:25.193" endtime="20230303 20:21:27.193"/>
-</kw>
-<status status="PASS" starttime="20230303 20:21:16.059" endtime="20230303 20:21:27.193"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${username_text_box}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230303 20:21:27.193" level="INFO">Typing text '' into text field '//input[@id='username']'.</msg>
-<status status="PASS" starttime="20230303 20:21:27.193" endtime="20230303 20:21:27.302"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${password_text_box}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230303 20:21:27.302" level="INFO">Typing text '' into text field '//input[@id='password']'.</msg>
-<status status="PASS" starttime="20230303 20:21:27.302" endtime="20230303 20:21:27.460"/>
-</kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>${login_button}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20230303 20:21:27.469" level="INFO">Clicking button '//button[contains(text(),'Đăng nhập')]'.</msg>
-<status status="PASS" starttime="20230303 20:21:27.460" endtime="20230303 20:21:28.010"/>
-</kw>
-<kw name="Element Should Contain" library="SeleniumLibrary">
-<arg>${error_message_login_page}</arg>
-<arg>${error_text}</arg>
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<msg timestamp="20230303 20:21:28.101" level="INFO">Element '//div[@id='input-error']' contains text 'Tên đăng nhập hoặc mật khẩu không đúng'.</msg>
-<status status="PASS" starttime="20230303 20:21:28.020" endtime="20230303 20:21:28.101"/>
-</kw>
-<kw name="Finish Test" library="CommonFunctionality">
-<kw name="Close All Browsers" library="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20230303 20:21:28.101" endtime="20230303 20:21:34.439"/>
-</kw>
-<status status="PASS" starttime="20230303 20:21:28.101" endtime="20230303 20:21:34.439"/>
-</kw>
-<status status="PASS" starttime="20230303 20:21:16.059" endtime="20230303 20:21:34.439"/>
-</kw>
-<status status="PASS" starttime="20230303 20:21:16.044" endtime="20230303 20:21:34.439"/>
-</test>
-<test id="s1-t3" name="Verify login Fails - Blank Username" line="14">
-<kw name="Invalid login action" library="LoginPage">
-<arg>${EMPTY}</arg>
-<arg>Test123</arg>
-<arg>Tên đăng nhập hoặc mật khẩu không đúng</arg>
-<tag>Negative case</tag>
-<doc>This test case will perform invalid login scenarios</doc>
-<kw name="Open TracNghiemVN login page" library="CommonFunctionality">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>${trac_nghiem_vn_login_page_ulr}</arg>
-<arg>${browser}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230303 20:21:34.455" level="INFO">Opening browser 'chrome' to base url 'https://auth.tracnghiem.vn/auth/realms/tracnghiemvn/protocol/openid-connect/auth?client_id=web-auth-app&amp;scope=openid%20profile%20email&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Ftracnghiem.vn%2Fsignin-keycloak&amp;state=CfDJ8CVEsmsgg3BJtzBf5x9wLvezaYX6oDoF5BLcA2UEduptiKwFhHLXOt_CklWCLXXxFlUYoC_Nc6jp9W-oijebSylsX3iVAPOJwa4pnjLhX6s2IspbpnD5zypjWx0aO1rore3g-qQycEWRp4k-j4DezzeQbTHUf6Q4_Z18be-uxWhFLJU0p7E6wr0LBNg6pMvh9zNrbJxTO32XGDThfhEKHZyG4JGpl1qf7LxzGqf2Ui6UuxcbyTwriKvOzdOwCISakQyDEYcA3QdlcH2Uu0WF5Qv4APk9wYLxIk3f_nSn5wmGxwApy1m1KSl3OwB7yin2HA'.</msg>
-<status status="PASS" starttime="20230303 20:21:34.455" endtime="20230303 20:21:41.310"/>
-</kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230303 20:21:41.310" endtime="20230303 20:21:41.515"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230303 20:21:43.515" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230303 20:21:41.515" endtime="20230303 20:21:43.515"/>
-</kw>
-<status status="PASS" starttime="20230303 20:21:34.455" endtime="20230303 20:21:43.515"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${username_text_box}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230303 20:21:43.515" level="INFO">Typing text '' into text field '//input[@id='username']'.</msg>
-<status status="PASS" starttime="20230303 20:21:43.515" endtime="20230303 20:21:43.752"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${password_text_box}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230303 20:21:43.752" level="INFO">Typing text 'Test123' into text field '//input[@id='password']'.</msg>
-<status status="PASS" starttime="20230303 20:21:43.752" endtime="20230303 20:21:43.966"/>
-</kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>${login_button}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20230303 20:21:43.966" level="INFO">Clicking button '//button[contains(text(),'Đăng nhập')]'.</msg>
-<status status="PASS" starttime="20230303 20:21:43.966" endtime="20230303 20:21:44.489"/>
-</kw>
-<kw name="Element Should Contain" library="SeleniumLibrary">
-<arg>${error_message_login_page}</arg>
-<arg>${error_text}</arg>
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<msg timestamp="20230303 20:21:44.574" level="INFO">Element '//div[@id='input-error']' contains text 'Tên đăng nhập hoặc mật khẩu không đúng'.</msg>
-<status status="PASS" starttime="20230303 20:21:44.489" endtime="20230303 20:21:44.574"/>
-</kw>
-<kw name="Finish Test" library="CommonFunctionality">
-<kw name="Close All Browsers" library="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20230303 20:21:44.574" endtime="20230303 20:21:50.944"/>
-</kw>
-<status status="PASS" starttime="20230303 20:21:44.574" endtime="20230303 20:21:50.944"/>
-</kw>
-<status status="PASS" starttime="20230303 20:21:34.455" endtime="20230303 20:21:50.944"/>
-</kw>
-<status status="PASS" starttime="20230303 20:21:34.439" endtime="20230303 20:21:50.944"/>
-</test>
-<test id="s1-t4" name="Verify login Fails - Blank Password" line="16">
-<kw name="Invalid login action" library="LoginPage">
-<arg>test1@gmail.com</arg>
-<arg>${EMPTY}</arg>
-<arg>Tên đăng nhập hoặc mật khẩu không đúng</arg>
-<tag>Negative case</tag>
-<doc>This test case will perform invalid login scenarios</doc>
-<kw name="Open TracNghiemVN login page" library="CommonFunctionality">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>${trac_nghiem_vn_login_page_ulr}</arg>
-<arg>${browser}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230303 20:21:50.960" level="INFO">Opening browser 'chrome' to base url 'https://auth.tracnghiem.vn/auth/realms/tracnghiemvn/protocol/openid-connect/auth?client_id=web-auth-app&amp;scope=openid%20profile%20email&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Ftracnghiem.vn%2Fsignin-keycloak&amp;state=CfDJ8CVEsmsgg3BJtzBf5x9wLvezaYX6oDoF5BLcA2UEduptiKwFhHLXOt_CklWCLXXxFlUYoC_Nc6jp9W-oijebSylsX3iVAPOJwa4pnjLhX6s2IspbpnD5zypjWx0aO1rore3g-qQycEWRp4k-j4DezzeQbTHUf6Q4_Z18be-uxWhFLJU0p7E6wr0LBNg6pMvh9zNrbJxTO32XGDThfhEKHZyG4JGpl1qf7LxzGqf2Ui6UuxcbyTwriKvOzdOwCISakQyDEYcA3QdlcH2Uu0WF5Qv4APk9wYLxIk3f_nSn5wmGxwApy1m1KSl3OwB7yin2HA'.</msg>
-<status status="PASS" starttime="20230303 20:21:50.960" endtime="20230303 20:21:57.658"/>
-</kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230303 20:21:57.658" endtime="20230303 20:21:57.909"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230303 20:21:59.910" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230303 20:21:57.909" endtime="20230303 20:21:59.910"/>
-</kw>
-<status status="PASS" starttime="20230303 20:21:50.960" endtime="20230303 20:21:59.910"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${username_text_box}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230303 20:21:59.910" level="INFO">Typing text 'test1@gmail.com' into text field '//input[@id='username']'.</msg>
-<status status="PASS" starttime="20230303 20:21:59.910" endtime="20230303 20:22:00.246"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${password_text_box}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230303 20:22:00.246" level="INFO">Typing text '' into text field '//input[@id='password']'.</msg>
-<status status="PASS" starttime="20230303 20:22:00.246" endtime="20230303 20:22:00.422"/>
-</kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>${login_button}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20230303 20:22:00.429" level="INFO">Clicking button '//button[contains(text(),'Đăng nhập')]'.</msg>
-<status status="PASS" starttime="20230303 20:22:00.429" endtime="20230303 20:22:00.931"/>
-</kw>
-<kw name="Element Should Contain" library="SeleniumLibrary">
-<arg>${error_message_login_page}</arg>
-<arg>${error_text}</arg>
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<msg timestamp="20230303 20:22:01.038" level="INFO">Element '//div[@id='input-error']' contains text 'Tên đăng nhập hoặc mật khẩu không đúng'.</msg>
-<status status="PASS" starttime="20230303 20:22:00.931" endtime="20230303 20:22:01.038"/>
-</kw>
-<kw name="Finish Test" library="CommonFunctionality">
-<kw name="Close All Browsers" library="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20230303 20:22:01.038" endtime="20230303 20:22:07.353"/>
-</kw>
-<status status="PASS" starttime="20230303 20:22:01.038" endtime="20230303 20:22:07.353"/>
-</kw>
-<status status="PASS" starttime="20230303 20:21:50.944" endtime="20230303 20:22:07.353"/>
-</kw>
-<status status="PASS" starttime="20230303 20:21:50.944" endtime="20230303 20:22:07.353"/>
-</test>
-<test id="s1-t5" name="Verify login Fails - Wrong Username" line="18">
-<kw name="Invalid login action" library="LoginPage">
-<arg>test@gmail.com</arg>
-<arg>Test123</arg>
-<arg>Tên đăng nhập hoặc mật khẩu không đúng</arg>
-<tag>Negative case</tag>
-<doc>This test case will perform invalid login scenarios</doc>
-<kw name="Open TracNghiemVN login page" library="CommonFunctionality">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>${trac_nghiem_vn_login_page_ulr}</arg>
-<arg>${browser}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230303 20:22:07.368" level="INFO">Opening browser 'chrome' to base url 'https://auth.tracnghiem.vn/auth/realms/tracnghiemvn/protocol/openid-connect/auth?client_id=web-auth-app&amp;scope=openid%20profile%20email&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Ftracnghiem.vn%2Fsignin-keycloak&amp;state=CfDJ8CVEsmsgg3BJtzBf5x9wLvezaYX6oDoF5BLcA2UEduptiKwFhHLXOt_CklWCLXXxFlUYoC_Nc6jp9W-oijebSylsX3iVAPOJwa4pnjLhX6s2IspbpnD5zypjWx0aO1rore3g-qQycEWRp4k-j4DezzeQbTHUf6Q4_Z18be-uxWhFLJU0p7E6wr0LBNg6pMvh9zNrbJxTO32XGDThfhEKHZyG4JGpl1qf7LxzGqf2Ui6UuxcbyTwriKvOzdOwCISakQyDEYcA3QdlcH2Uu0WF5Qv4APk9wYLxIk3f_nSn5wmGxwApy1m1KSl3OwB7yin2HA'.</msg>
-<status status="PASS" starttime="20230303 20:22:07.368" endtime="20230303 20:22:14.485"/>
-</kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230303 20:22:14.485" endtime="20230303 20:22:14.619"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230303 20:22:16.620" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230303 20:22:14.619" endtime="20230303 20:22:16.620"/>
-</kw>
-<status status="PASS" starttime="20230303 20:22:07.368" endtime="20230303 20:22:16.620"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${username_text_box}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230303 20:22:16.620" level="INFO">Typing text 'test@gmail.com' into text field '//input[@id='username']'.</msg>
-<status status="PASS" starttime="20230303 20:22:16.620" endtime="20230303 20:22:16.948"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${password_text_box}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230303 20:22:16.948" level="INFO">Typing text 'Test123' into text field '//input[@id='password']'.</msg>
-<status status="PASS" starttime="20230303 20:22:16.948" endtime="20230303 20:22:17.150"/>
-</kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>${login_button}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20230303 20:22:17.150" level="INFO">Clicking button '//button[contains(text(),'Đăng nhập')]'.</msg>
-<status status="PASS" starttime="20230303 20:22:17.150" endtime="20230303 20:22:17.716"/>
-</kw>
-<kw name="Element Should Contain" library="SeleniumLibrary">
-<arg>${error_message_login_page}</arg>
-<arg>${error_text}</arg>
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<msg timestamp="20230303 20:22:17.826" level="INFO">Element '//div[@id='input-error']' contains text 'Tên đăng nhập hoặc mật khẩu không đúng'.</msg>
-<status status="PASS" starttime="20230303 20:22:17.716" endtime="20230303 20:22:17.826"/>
-</kw>
-<kw name="Finish Test" library="CommonFunctionality">
-<kw name="Close All Browsers" library="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20230303 20:22:17.826" endtime="20230303 20:22:24.153"/>
-</kw>
-<status status="PASS" starttime="20230303 20:22:17.826" endtime="20230303 20:22:24.153"/>
-</kw>
-<status status="PASS" starttime="20230303 20:22:07.353" endtime="20230303 20:22:24.153"/>
-</kw>
-<status status="PASS" starttime="20230303 20:22:07.353" endtime="20230303 20:22:24.153"/>
-</test>
-<test id="s1-t6" name="Verify login Fails - Wrong Password" line="20">
-<kw name="Invalid login action" library="LoginPage">
-<arg>test1@gmail.com</arg>
-<arg>Test12</arg>
-<arg>Tên đăng nhập hoặc mật khẩu không đúng</arg>
-<tag>Negative case</tag>
-<doc>This test case will perform invalid login scenarios</doc>
-<kw name="Open TracNghiemVN login page" library="CommonFunctionality">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>${trac_nghiem_vn_login_page_ulr}</arg>
-<arg>${browser}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230303 20:22:24.169" level="INFO">Opening browser 'chrome' to base url 'https://auth.tracnghiem.vn/auth/realms/tracnghiemvn/protocol/openid-connect/auth?client_id=web-auth-app&amp;scope=openid%20profile%20email&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Ftracnghiem.vn%2Fsignin-keycloak&amp;state=CfDJ8CVEsmsgg3BJtzBf5x9wLvezaYX6oDoF5BLcA2UEduptiKwFhHLXOt_CklWCLXXxFlUYoC_Nc6jp9W-oijebSylsX3iVAPOJwa4pnjLhX6s2IspbpnD5zypjWx0aO1rore3g-qQycEWRp4k-j4DezzeQbTHUf6Q4_Z18be-uxWhFLJU0p7E6wr0LBNg6pMvh9zNrbJxTO32XGDThfhEKHZyG4JGpl1qf7LxzGqf2Ui6UuxcbyTwriKvOzdOwCISakQyDEYcA3QdlcH2Uu0WF5Qv4APk9wYLxIk3f_nSn5wmGxwApy1m1KSl3OwB7yin2HA'.</msg>
-<status status="PASS" starttime="20230303 20:22:24.169" endtime="20230303 20:22:30.594"/>
-</kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230303 20:22:30.594" endtime="20230303 20:22:30.866"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230303 20:22:32.866" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230303 20:22:30.866" endtime="20230303 20:22:32.866"/>
-</kw>
-<status status="PASS" starttime="20230303 20:22:24.169" endtime="20230303 20:22:32.866"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${username_text_box}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230303 20:22:32.866" level="INFO">Typing text 'test1@gmail.com' into text field '//input[@id='username']'.</msg>
-<status status="PASS" starttime="20230303 20:22:32.866" endtime="20230303 20:22:33.026"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${password_text_box}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230303 20:22:33.026" level="INFO">Typing text 'Test12' into text field '//input[@id='password']'.</msg>
-<status status="PASS" starttime="20230303 20:22:33.026" endtime="20230303 20:22:33.191"/>
-</kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>${login_button}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20230303 20:22:33.191" level="INFO">Clicking button '//button[contains(text(),'Đăng nhập')]'.</msg>
-<status status="PASS" starttime="20230303 20:22:33.191" endtime="20230303 20:22:33.645"/>
-</kw>
-<kw name="Element Should Contain" library="SeleniumLibrary">
-<arg>${error_message_login_page}</arg>
-<arg>${error_text}</arg>
-<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
-<msg timestamp="20230303 20:22:33.875" level="INFO">Element '//div[@id='input-error']' contains text 'Tên đăng nhập hoặc mật khẩu không đúng'.</msg>
-<status status="PASS" starttime="20230303 20:22:33.653" endtime="20230303 20:22:33.875"/>
-</kw>
-<kw name="Finish Test" library="CommonFunctionality">
-<kw name="Close All Browsers" library="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20230303 20:22:33.875" endtime="20230303 20:22:40.250"/>
-</kw>
-<status status="PASS" starttime="20230303 20:22:33.875" endtime="20230303 20:22:40.250"/>
-</kw>
-<status status="PASS" starttime="20230303 20:22:24.153" endtime="20230303 20:22:40.250"/>
-</kw>
-<status status="PASS" starttime="20230303 20:22:24.153" endtime="20230303 20:22:40.250"/>
-</test>
-<test id="s1-t7" name="Verify the working of login by google function" line="23">
-<kw name="Login by google" library="LoginPage">
-<kw name="Open TracNghiemVN login page" library="CommonFunctionality">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>${trac_nghiem_vn_login_page_ulr}</arg>
-<arg>${browser}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230303 20:22:40.265" level="INFO">Opening browser 'chrome' to base url 'https://auth.tracnghiem.vn/auth/realms/tracnghiemvn/protocol/openid-connect/auth?client_id=web-auth-app&amp;scope=openid%20profile%20email&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Ftracnghiem.vn%2Fsignin-keycloak&amp;state=CfDJ8CVEsmsgg3BJtzBf5x9wLvezaYX6oDoF5BLcA2UEduptiKwFhHLXOt_CklWCLXXxFlUYoC_Nc6jp9W-oijebSylsX3iVAPOJwa4pnjLhX6s2IspbpnD5zypjWx0aO1rore3g-qQycEWRp4k-j4DezzeQbTHUf6Q4_Z18be-uxWhFLJU0p7E6wr0LBNg6pMvh9zNrbJxTO32XGDThfhEKHZyG4JGpl1qf7LxzGqf2Ui6UuxcbyTwriKvOzdOwCISakQyDEYcA3QdlcH2Uu0WF5Qv4APk9wYLxIk3f_nSn5wmGxwApy1m1KSl3OwB7yin2HA'.</msg>
-<status status="PASS" starttime="20230303 20:22:40.265" endtime="20230303 20:22:46.928"/>
-</kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230303 20:22:46.928" endtime="20230303 20:22:47.099"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230303 20:22:49.100" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230303 20:22:47.099" endtime="20230303 20:22:49.100"/>
-</kw>
-<status status="PASS" starttime="20230303 20:22:40.265" endtime="20230303 20:22:49.100"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${google_signup_button}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230303 20:22:49.100" level="INFO">Clicking element '//a[normalize-space()='Google']'.</msg>
-<status status="PASS" starttime="20230303 20:22:49.100" endtime="20230303 20:22:52.244"/>
+<msg timestamp="20230305 17:29:58.014" level="INFO">Current page contains element '//span[contains(text(),'kết quả')]'.</msg>
+<status status="PASS" starttime="20230305 17:29:57.992" endtime="20230305 17:29:58.016"/>
+</kw>
+<status status="PASS" starttime="20230305 17:29:54.912" endtime="20230305 17:29:58.017"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${search_blank_result_srp}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230305 17:29:58.017" endtime="20230305 17:29:58.068"/>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
-<arg>Đăng nhập bằng Google</arg>
+<arg>${no_result_for_search_srp}</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230303 20:22:52.404" level="INFO">Current page contains text 'Đăng nhập bằng Google'.</msg>
-<status status="PASS" starttime="20230303 20:22:52.244" endtime="20230303 20:22:52.404"/>
+<msg timestamp="20230305 17:29:59.208" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230305 17:29:59.208" level="FAIL">Page should have contained text '//h3[contains(text(),'Không có dữ liệu')]' but did not.</msg>
+<status status="FAIL" starttime="20230305 17:29:58.068" endtime="20230305 17:29:59.216"/>
 </kw>
-<kw name="Finish Test" library="CommonFunctionality">
-<kw name="Close All Browsers" library="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20230303 20:22:52.404" endtime="20230303 20:22:59.667"/>
+<status status="FAIL" starttime="20230305 17:29:54.908" endtime="20230305 17:29:59.217"/>
 </kw>
-<status status="PASS" starttime="20230303 20:22:52.404" endtime="20230303 20:22:59.667"/>
-</kw>
-<status status="PASS" starttime="20230303 20:22:40.250" endtime="20230303 20:22:59.667"/>
-</kw>
-<status status="PASS" starttime="20230303 20:22:40.250" endtime="20230303 20:22:59.667"/>
-</test>
-<test id="s1-t8" name="Verify the working of login by facebook function" line="26">
-<kw name="Login by facebook" library="LoginPage">
-<kw name="Open TracNghiemVN login page" library="CommonFunctionality">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>${trac_nghiem_vn_login_page_ulr}</arg>
-<arg>${browser}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230303 20:22:59.683" level="INFO">Opening browser 'chrome' to base url 'https://auth.tracnghiem.vn/auth/realms/tracnghiemvn/protocol/openid-connect/auth?client_id=web-auth-app&amp;scope=openid%20profile%20email&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Ftracnghiem.vn%2Fsignin-keycloak&amp;state=CfDJ8CVEsmsgg3BJtzBf5x9wLvezaYX6oDoF5BLcA2UEduptiKwFhHLXOt_CklWCLXXxFlUYoC_Nc6jp9W-oijebSylsX3iVAPOJwa4pnjLhX6s2IspbpnD5zypjWx0aO1rore3g-qQycEWRp4k-j4DezzeQbTHUf6Q4_Z18be-uxWhFLJU0p7E6wr0LBNg6pMvh9zNrbJxTO32XGDThfhEKHZyG4JGpl1qf7LxzGqf2Ui6UuxcbyTwriKvOzdOwCISakQyDEYcA3QdlcH2Uu0WF5Qv4APk9wYLxIk3f_nSn5wmGxwApy1m1KSl3OwB7yin2HA'.</msg>
-<status status="PASS" starttime="20230303 20:22:59.683" endtime="20230303 20:23:07.162"/>
-</kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230303 20:23:07.162" endtime="20230303 20:23:07.324"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230303 20:23:09.324" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230303 20:23:07.324" endtime="20230303 20:23:09.324"/>
-</kw>
-<status status="PASS" starttime="20230303 20:22:59.683" endtime="20230303 20:23:09.324"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${facebook_signup_button}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230303 20:23:09.324" level="INFO">Clicking element '//a[normalize-space()='Facebook']'.</msg>
-<status status="PASS" starttime="20230303 20:23:09.324" endtime="20230303 20:23:13.603"/>
-</kw>
-<kw name="Page Should Contain" library="SeleniumLibrary">
-<arg>Log in to Facebook</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230303 20:23:13.638" level="INFO">Current page contains text 'Log in to Facebook'.</msg>
-<status status="PASS" starttime="20230303 20:23:13.603" endtime="20230303 20:23:13.638"/>
-</kw>
-<kw name="Finish Test" library="CommonFunctionality">
-<kw name="Close All Browsers" library="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20230303 20:23:13.638" endtime="20230303 20:23:20.067"/>
-</kw>
-<status status="PASS" starttime="20230303 20:23:13.638" endtime="20230303 20:23:20.067"/>
-</kw>
-<status status="PASS" starttime="20230303 20:22:59.683" endtime="20230303 20:23:20.067"/>
-</kw>
-<status status="PASS" starttime="20230303 20:22:59.667" endtime="20230303 20:23:20.067"/>
-</test>
-<test id="s1-t9" name="Verify the working of forgot password function" line="29">
-<kw name="Forgot your password page" library="LoginPage">
-<kw name="Open TracNghiemVN login page" library="CommonFunctionality">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>${trac_nghiem_vn_login_page_ulr}</arg>
-<arg>${browser}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230303 20:23:20.083" level="INFO">Opening browser 'chrome' to base url 'https://auth.tracnghiem.vn/auth/realms/tracnghiemvn/protocol/openid-connect/auth?client_id=web-auth-app&amp;scope=openid%20profile%20email&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Ftracnghiem.vn%2Fsignin-keycloak&amp;state=CfDJ8CVEsmsgg3BJtzBf5x9wLvezaYX6oDoF5BLcA2UEduptiKwFhHLXOt_CklWCLXXxFlUYoC_Nc6jp9W-oijebSylsX3iVAPOJwa4pnjLhX6s2IspbpnD5zypjWx0aO1rore3g-qQycEWRp4k-j4DezzeQbTHUf6Q4_Z18be-uxWhFLJU0p7E6wr0LBNg6pMvh9zNrbJxTO32XGDThfhEKHZyG4JGpl1qf7LxzGqf2Ui6UuxcbyTwriKvOzdOwCISakQyDEYcA3QdlcH2Uu0WF5Qv4APk9wYLxIk3f_nSn5wmGxwApy1m1KSl3OwB7yin2HA'.</msg>
-<status status="PASS" starttime="20230303 20:23:20.083" endtime="20230303 20:23:26.729"/>
-</kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230303 20:23:26.737" endtime="20230303 20:23:26.990"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230303 20:23:28.991" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230303 20:23:26.990" endtime="20230303 20:23:28.992"/>
-</kw>
-<status status="PASS" starttime="20230303 20:23:20.083" endtime="20230303 20:23:28.992"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${forgot_password_button}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230303 20:23:28.997" level="INFO">Clicking element '//a[contains(text(),'Quên mật khẩu?')]'.</msg>
-<status status="PASS" starttime="20230303 20:23:28.994" endtime="20230303 20:23:29.426"/>
-</kw>
-<kw name="Page Should Contain" library="SeleniumLibrary">
-<arg>Đặt lại mật khẩu của bạn</arg>
-<doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20230303 20:23:29.723" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20230303 20:23:29.723" level="FAIL">Page should have contained text 'Đặt lại mật khẩu của bạn' but did not.</msg>
-<status status="FAIL" starttime="20230303 20:23:29.426" endtime="20230303 20:23:29.739"/>
-</kw>
-<kw name="Finish Test" library="CommonFunctionality">
-<status status="NOT RUN" starttime="20230303 20:23:29.739" endtime="20230303 20:23:29.739"/>
-</kw>
-<status status="FAIL" starttime="20230303 20:23:20.067" endtime="20230303 20:23:29.739"/>
-</kw>
-<status status="FAIL" starttime="20230303 20:23:20.067" endtime="20230303 20:23:29.739">Page should have contained text 'Đặt lại mật khẩu của bạn' but did not.</status>
-</test>
-<test id="s1-t10" name="Verify the working of sigup now function" line="32">
-<kw name="Redirect to signup page" library="LoginPage">
-<kw name="Open TracNghiemVN login page" library="CommonFunctionality">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>${trac_nghiem_vn_login_page_ulr}</arg>
-<arg>${browser}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230303 20:23:29.755" level="INFO">Opening browser 'chrome' to base url 'https://auth.tracnghiem.vn/auth/realms/tracnghiemvn/protocol/openid-connect/auth?client_id=web-auth-app&amp;scope=openid%20profile%20email&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Ftracnghiem.vn%2Fsignin-keycloak&amp;state=CfDJ8CVEsmsgg3BJtzBf5x9wLvezaYX6oDoF5BLcA2UEduptiKwFhHLXOt_CklWCLXXxFlUYoC_Nc6jp9W-oijebSylsX3iVAPOJwa4pnjLhX6s2IspbpnD5zypjWx0aO1rore3g-qQycEWRp4k-j4DezzeQbTHUf6Q4_Z18be-uxWhFLJU0p7E6wr0LBNg6pMvh9zNrbJxTO32XGDThfhEKHZyG4JGpl1qf7LxzGqf2Ui6UuxcbyTwriKvOzdOwCISakQyDEYcA3QdlcH2Uu0WF5Qv4APk9wYLxIk3f_nSn5wmGxwApy1m1KSl3OwB7yin2HA'.</msg>
-<status status="PASS" starttime="20230303 20:23:29.739" endtime="20230303 20:23:37.192"/>
-</kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230303 20:23:37.192" endtime="20230303 20:23:37.401"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230303 20:23:39.401" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230303 20:23:37.401" endtime="20230303 20:23:39.401"/>
-</kw>
-<status status="PASS" starttime="20230303 20:23:29.739" endtime="20230303 20:23:39.401"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${redirect_signup_page}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230303 20:23:39.401" level="INFO">Clicking element '//a[contains(text(),'Đăng ký ngay')]'.</msg>
-<status status="PASS" starttime="20230303 20:23:39.401" endtime="20230303 20:23:39.847"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${sign_up_button}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20230303 20:23:39.879" level="INFO">Current page contains element '//input[@value='Đăng ký']'.</msg>
-<status status="PASS" starttime="20230303 20:23:39.847" endtime="20230303 20:23:39.887"/>
-</kw>
-<kw name="Finish Test" library="CommonFunctionality">
-<kw name="Close All Browsers" library="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20230303 20:23:39.887" endtime="20230303 20:23:52.809"/>
-</kw>
-<status status="PASS" starttime="20230303 20:23:39.887" endtime="20230303 20:23:52.809"/>
-</kw>
-<status status="PASS" starttime="20230303 20:23:29.739" endtime="20230303 20:23:52.809"/>
-</kw>
-<status status="PASS" starttime="20230303 20:23:29.739" endtime="20230303 20:23:52.809"/>
-</test>
-<test id="s1-t11" name="Verify user can return to landing page by click on the icon" line="35">
-<kw name="Redirect to landing page" library="LoginPage">
-<kw name="Open TracNghiemVN login page" library="CommonFunctionality">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>${trac_nghiem_vn_login_page_ulr}</arg>
-<arg>${browser}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230303 20:23:52.825" level="INFO">Opening browser 'chrome' to base url 'https://auth.tracnghiem.vn/auth/realms/tracnghiemvn/protocol/openid-connect/auth?client_id=web-auth-app&amp;scope=openid%20profile%20email&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Ftracnghiem.vn%2Fsignin-keycloak&amp;state=CfDJ8CVEsmsgg3BJtzBf5x9wLvezaYX6oDoF5BLcA2UEduptiKwFhHLXOt_CklWCLXXxFlUYoC_Nc6jp9W-oijebSylsX3iVAPOJwa4pnjLhX6s2IspbpnD5zypjWx0aO1rore3g-qQycEWRp4k-j4DezzeQbTHUf6Q4_Z18be-uxWhFLJU0p7E6wr0LBNg6pMvh9zNrbJxTO32XGDThfhEKHZyG4JGpl1qf7LxzGqf2Ui6UuxcbyTwriKvOzdOwCISakQyDEYcA3QdlcH2Uu0WF5Qv4APk9wYLxIk3f_nSn5wmGxwApy1m1KSl3OwB7yin2HA'.</msg>
-<status status="PASS" starttime="20230303 20:23:52.809" endtime="20230303 20:24:00.195"/>
-</kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230303 20:24:00.195" endtime="20230303 20:24:00.350"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230303 20:24:02.351" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230303 20:24:00.350" endtime="20230303 20:24:02.351"/>
-</kw>
-<status status="PASS" starttime="20230303 20:23:52.809" endtime="20230303 20:24:02.351"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${return_landing_page}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230303 20:24:02.351" level="INFO">Clicking element '//img[@class='img-fluid header-logo']'.</msg>
-<status status="PASS" starttime="20230303 20:24:02.351" endtime="20230303 20:24:03.724"/>
-</kw>
-<kw name="Page Should Contain Element" library="SeleniumLibrary">
-<arg>${title_landing_page}</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20230303 20:24:03.939" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20230303 20:24:03.939" level="FAIL">Page should have contained element '//h1[contains(text(),'Ngân hàng đề thi trắc nghiệm online, tuyển tập bài')]' but did not.</msg>
-<status status="FAIL" starttime="20230303 20:24:03.724" endtime="20230303 20:24:03.939"/>
-</kw>
-<kw name="Finish Test" library="CommonFunctionality">
-<status status="NOT RUN" starttime="20230303 20:24:03.939" endtime="20230303 20:24:03.939"/>
-</kw>
-<status status="FAIL" starttime="20230303 20:23:52.809" endtime="20230303 20:24:03.939"/>
-</kw>
-<status status="FAIL" starttime="20230303 20:23:52.809" endtime="20230303 20:24:03.939">Page should have contained element '//h1[contains(text(),'Ngân hàng đề thi trắc nghiệm online, tuyển tập bài')]' but did not.</status>
-</test>
 <kw name="Finish Test" library="CommonFunctionality" type="TEARDOWN">
 <kw name="Close All Browsers" library="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20230303 20:24:03.939" endtime="20230303 20:24:10.426"/>
+<status status="PASS" starttime="20230305 17:29:59.218" endtime="20230305 17:30:06.077"/>
 </kw>
-<status status="PASS" starttime="20230303 20:24:03.939" endtime="20230303 20:24:10.426"/>
+<status status="PASS" starttime="20230305 17:29:59.217" endtime="20230305 17:30:06.078"/>
 </kw>
-<status status="FAIL" starttime="20230303 20:20:39.560" endtime="20230303 20:24:10.426"/>
+<status status="FAIL" starttime="20230305 17:29:41.217" endtime="20230305 17:30:06.078">Page should have contained text '//h3[contains(text(),'Không có dữ liệu')]' but did not.</status>
+</test>
+<test id="s1-t2" name="Verify if user entered wrong values into search bar" line="13">
+<kw name="Open TracNghiemVN main page" library="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${trac_nghiem_vn_ulr}</arg>
+<arg>${chrome_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230305 17:30:06.083" level="INFO">Opening browser 'chrome' to base url 'https://tracnghiem.vn/'.</msg>
+<status status="PASS" starttime="20230305 17:30:06.083" endtime="20230305 17:30:17.292"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230305 17:30:17.292" endtime="20230305 17:30:17.436"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230305 17:30:19.438" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230305 17:30:17.437" endtime="20230305 17:30:19.438"/>
+</kw>
+<status status="PASS" starttime="20230305 17:30:06.082" endtime="20230305 17:30:19.438"/>
+</kw>
+<kw name="Wrong values result" library="SearchResultPage">
+<arg>game</arg>
+<kw name="Search bar action" library="LandingPage">
+<arg>${search_text}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${search_text_box_lp}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230305 17:30:19.440" level="INFO">Typing text 'game' into text field '//input[@id='input_keyword']'.</msg>
+<status status="PASS" starttime="20230305 17:30:19.439" endtime="20230305 17:30:19.658"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${search_button_lp}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230305 17:30:19.659" level="INFO">Clicking button '//button[@class='btn btn-primary']'.</msg>
+<status status="PASS" starttime="20230305 17:30:19.659" endtime="20230305 17:30:21.120"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${search_result_page_title_srp}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230305 17:30:21.143" level="INFO">Current page contains element '//span[contains(text(),'kết quả')]'.</msg>
+<status status="PASS" starttime="20230305 17:30:21.121" endtime="20230305 17:30:21.145"/>
+</kw>
+<status status="PASS" starttime="20230305 17:30:19.439" endtime="20230305 17:30:21.145"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${no_result_for_search_srp}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230305 17:30:21.168" level="INFO">Current page contains element '//h3[contains(text(),'Không có dữ liệu')]'.</msg>
+<status status="PASS" starttime="20230305 17:30:21.145" endtime="20230305 17:30:21.168"/>
+</kw>
+<status status="PASS" starttime="20230305 17:30:19.438" endtime="20230305 17:30:21.169"/>
+</kw>
+<kw name="Finish Test" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230305 17:30:21.171" endtime="20230305 17:30:27.614"/>
+</kw>
+<status status="PASS" starttime="20230305 17:30:21.170" endtime="20230305 17:30:27.614"/>
+</kw>
+<status status="PASS" starttime="20230305 17:30:06.081" endtime="20230305 17:30:27.615"/>
+</test>
+<test id="s1-t3" name="Verify if user entered relative value into search bar" line="19">
+<kw name="Open TracNghiemVN main page" library="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${trac_nghiem_vn_ulr}</arg>
+<arg>${chrome_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230305 17:30:27.619" level="INFO">Opening browser 'chrome' to base url 'https://tracnghiem.vn/'.</msg>
+<status status="PASS" starttime="20230305 17:30:27.618" endtime="20230305 17:30:36.391"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230305 17:30:36.391" endtime="20230305 17:30:36.619"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230305 17:30:38.619" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230305 17:30:36.619" endtime="20230305 17:30:38.619"/>
+</kw>
+<status status="PASS" starttime="20230305 17:30:27.618" endtime="20230305 17:30:38.619"/>
+</kw>
+<kw name="Correct values result" library="SearchResultPage">
+<arg>Lái xe</arg>
+<kw name="Search bar action" library="LandingPage">
+<arg>${search_text}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${search_text_box_lp}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230305 17:30:38.624" level="INFO">Typing text 'Lái xe' into text field '//input[@id='input_keyword']'.</msg>
+<status status="PASS" starttime="20230305 17:30:38.622" endtime="20230305 17:30:38.832"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${search_button_lp}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230305 17:30:38.833" level="INFO">Clicking button '//button[@class='btn btn-primary']'.</msg>
+<status status="PASS" starttime="20230305 17:30:38.832" endtime="20230305 17:30:41.105"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${search_result_page_title_srp}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230305 17:30:41.129" level="INFO">Current page contains element '//span[contains(text(),'kết quả')]'.</msg>
+<status status="PASS" starttime="20230305 17:30:41.105" endtime="20230305 17:30:41.129"/>
+</kw>
+<status status="PASS" starttime="20230305 17:30:38.621" endtime="20230305 17:30:41.129"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${search_text}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20230305 17:30:41.166" level="INFO">Current page contains text 'Lái xe'.</msg>
+<status status="PASS" starttime="20230305 17:30:41.129" endtime="20230305 17:30:41.166"/>
+</kw>
+<status status="PASS" starttime="20230305 17:30:38.620" endtime="20230305 17:30:41.167"/>
+</kw>
+<kw name="Finish Test" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230305 17:30:41.168" endtime="20230305 17:30:47.519"/>
+</kw>
+<status status="PASS" starttime="20230305 17:30:41.168" endtime="20230305 17:30:47.519"/>
+</kw>
+<status status="PASS" starttime="20230305 17:30:27.617" endtime="20230305 17:30:47.520"/>
+</test>
+<test id="s1-t4" name="Verify if user entered default value into search bar" line="25">
+<kw name="Open TracNghiemVN main page" library="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${trac_nghiem_vn_ulr}</arg>
+<arg>${chrome_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230305 17:30:47.524" level="INFO">Opening browser 'chrome' to base url 'https://tracnghiem.vn/'.</msg>
+<status status="PASS" starttime="20230305 17:30:47.523" endtime="20230305 17:30:57.413"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230305 17:30:57.414" endtime="20230305 17:30:57.898"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230305 17:30:59.899" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230305 17:30:57.899" endtime="20230305 17:30:59.899"/>
+</kw>
+<status status="PASS" starttime="20230305 17:30:47.523" endtime="20230305 17:30:59.899"/>
+</kw>
+<kw name="Correct values result" library="SearchResultPage">
+<arg>Thi lý thuyết B2</arg>
+<kw name="Search bar action" library="LandingPage">
+<arg>${search_text}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${search_text_box_lp}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230305 17:30:59.904" level="INFO">Typing text 'Thi lý thuyết B2' into text field '//input[@id='input_keyword']'.</msg>
+<status status="PASS" starttime="20230305 17:30:59.903" endtime="20230305 17:31:00.179"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${search_button_lp}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230305 17:31:00.181" level="INFO">Clicking button '//button[@class='btn btn-primary']'.</msg>
+<status status="PASS" starttime="20230305 17:31:00.179" endtime="20230305 17:31:02.380"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${search_result_page_title_srp}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230305 17:31:02.406" level="INFO">Current page contains element '//span[contains(text(),'kết quả')]'.</msg>
+<status status="PASS" starttime="20230305 17:31:02.380" endtime="20230305 17:31:02.407"/>
+</kw>
+<status status="PASS" starttime="20230305 17:30:59.902" endtime="20230305 17:31:02.407"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${search_text}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20230305 17:31:02.445" level="INFO">Current page contains text 'Thi lý thuyết B2'.</msg>
+<status status="PASS" starttime="20230305 17:31:02.407" endtime="20230305 17:31:02.445"/>
+</kw>
+<status status="PASS" starttime="20230305 17:30:59.900" endtime="20230305 17:31:02.445"/>
+</kw>
+<kw name="Finish Test" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230305 17:31:02.447" endtime="20230305 17:31:09.010"/>
+</kw>
+<status status="PASS" starttime="20230305 17:31:02.446" endtime="20230305 17:31:09.011"/>
+</kw>
+<status status="PASS" starttime="20230305 17:30:47.522" endtime="20230305 17:31:09.013"/>
+</test>
+<status status="FAIL" starttime="20230305 17:29:40.622" endtime="20230305 17:31:09.027"/>
 </suite>
 <statistics>
 <total>
-<stat pass="9" fail="2" skip="0">All Tests</stat>
+<stat pass="3" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="9" fail="2" skip="0" id="s1" name="LoginFunctionality">LoginFunctionality</stat>
+<stat pass="3" fail="1" skip="0" id="s1" name="SearchFunctionality">SearchFunctionality</stat>
 </suite>
 </statistics>
 <errors>
